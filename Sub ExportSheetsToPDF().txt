@@ -1,0 +1,60 @@
+Sub ExportSheetsToPDF()
+    Dim ws As Worksheet
+    Dim pdfPath As String
+    Dim sheetsToExport As Variant
+    
+    ' Save path (same folder as workbook)
+    pdfPath = ThisWorkbook.Path & "\ExportedSheets_" & Format(Now, "dd/mm/yyyy") & ".pdf"
+    
+    ' Configure Tracker sheet
+    Set ws = ThisWorkbook.Sheets("Tracker")
+    With ws.PageSetup
+        .PrintArea = "A1:AB37"
+        .Orientation = xlLandscape
+        .Zoom = False
+        .FitToPagesWide = 1
+        .FitToPagesTall = 1
+        .PaperSize = xlPaperLetter
+        .LeftMargin = Application.InchesToPoints(0.25)
+        .RightMargin = Application.InchesToPoints(0.25)
+        .TopMargin = Application.InchesToPoints(0.25)
+        .BottomMargin = Application.InchesToPoints(0.25)
+        .HeaderMargin = Application.InchesToPoints(0.1)
+        .FooterMargin = Application.InchesToPoints(0.1)
+    End With
+    
+    ' Configure Current sheet
+    Set ws = ThisWorkbook.Sheets("Current")
+    With ws.PageSetup
+        .PrintArea = "A1:T17"
+        .Orientation = xlLandscape
+        .Zoom = False
+        .FitToPagesWide = 1
+        .FitToPagesTall = 1
+        .PaperSize = xlPaperLetter
+        .LeftMargin = Application.InchesToPoints(0.25)
+        .RightMargin = Application.InchesToPoints(0.25)
+        .TopMargin = Application.InchesToPoints(0.25)
+        .BottomMargin = Application.InchesToPoints(0.25)
+        .HeaderMargin = Application.InchesToPoints(0.1)
+        .FooterMargin = Application.InchesToPoints(0.1)
+    End With
+    
+    ' Create array of sheets to export
+    sheetsToExport = Array("Tracker", "Current")
+    
+    ' Select both sheets and export as single PDF
+    ThisWorkbook.Sheets(sheetsToExport).Select
+    ActiveSheet.ExportAsFixedFormat Type:=xlTypePDF, _
+                                   fileName:=pdfPath, _
+                                   Quality:=xlQualityStandard, _
+                                   IncludeDocProperties:=True, _
+                                   IgnorePrintAreas:=False, _
+                                   OpenAfterPublish:=True
+    
+    ' Deselect sheets (select first sheet)
+    ThisWorkbook.Sheets(1).Select
+    
+    MsgBox "PDF created: " & pdfPath, vbInformation
+End Sub
+

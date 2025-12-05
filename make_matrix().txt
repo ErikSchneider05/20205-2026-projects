@@ -1,0 +1,221 @@
+
+Sub make_matrix()
+    
+    'making New Sheet
+    Dim name_s As String
+    name_s = "correlation_matrix"
+    ActiveSheet.Copy Before:=ActiveSheet
+    
+    If ActiveSheet.ListObjects.Count > 0 Then
+        ActiveSheet.ListObjects(1).Unlist
+    End If
+    ActiveSheet.Cells.ClearFormats
+    ActiveSheet.name = name_s
+    
+    
+   
+'Creating matrix via macro record
+    Range("A1:M1").Select
+    Selection.Copy
+    Range("Q1").Select
+    ActiveSheet.Paste
+    Columns("Q:Q").EntireColumn.AutoFit
+    Columns("R:R").EntireColumn.AutoFit
+    Columns("S:S").EntireColumn.AutoFit
+    Columns("T:T").EntireColumn.AutoFit
+    Columns("U:U").EntireColumn.AutoFit
+    Columns("V:V").EntireColumn.AutoFit
+    Columns("W:W").EntireColumn.AutoFit
+    Columns("X:X").EntireColumn.AutoFit
+    Columns("Y:Y").EntireColumn.AutoFit
+    Columns("Z:Z").EntireColumn.AutoFit
+    Columns("AA:AA").EntireColumn.AutoFit
+    Columns("AB:AB").EntireColumn.AutoFit
+    Columns("AC:AC").EntireColumn.AutoFit
+    Range("Q1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Range("P2").Select
+    ActiveSheet.Paste
+    Range("R1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Range("P3").Select
+    ActiveSheet.Paste
+    Range("S1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Range("P4").Select
+    ActiveSheet.Paste
+    Selection.End(xlUp).Select
+    Range("T1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Range("P5").Select
+    ActiveSheet.Paste
+    Range("U1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Selection.End(xlDown).Select
+    Range("U1048574").Select
+    Selection.End(xlUp).Select
+    Range("P6").Select
+    ActiveSheet.Paste
+    Range("V1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Range("P7").Select
+    ActiveSheet.Paste
+    Range("W1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Range("P8").Select
+    ActiveSheet.Paste
+    Range("X1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Range("P9").Select
+    ActiveSheet.Paste
+    Range("Y1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Range("P10").Select
+    ActiveSheet.Paste
+    Range("Z1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Range("P11").Select
+    ActiveSheet.Paste
+    Range("AA1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Range("P12").Select
+    ActiveSheet.Paste
+    Range("AB1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Range("P13").Select
+    ActiveSheet.Paste
+    Range("AC1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Range("P14").Select
+    ActiveSheet.Paste
+    Range("N14").Select
+    Columns("P:P").EntireColumn.AutoFit
+    Range("P1").Select
+    Application.CutCopyMode = False
+    ActiveCell.FormulaR1C1 = "Correlation Matrix"
+    Range("Q2").Select
+    ActiveCell.FormulaR1C1 = "=CORREL(C[-16],C[-16])"
+    Range("R2").Select
+    ActiveCell.FormulaR1C1 = "=CORREL(C[-17],C[-16])"
+    Range("S2").Select
+    ActiveCell.FormulaR1C1 = "=CORREL(C[-18],C[-16])"
+    Range("Q2").Select
+    Selection.AutoFill Destination:=Range("Q2:AC2"), Type:=xlFillDefault
+    Range("Q2:AC2").Select
+    Range("R2").Select
+    ActiveCell.FormulaR1C1 = "=CORREL(C[-16],C[-16])"
+    Range("Q2").Select
+    ActiveCell.FormulaR1C1 = "=CORREL(C1,C[-16])"
+    Range("Q2").Select
+    Selection.AutoFill Destination:=Range("Q2:AC2"), Type:=xlFillDefault
+    Range("Q2:AC2").Select
+    Range("R2").Select
+    Application.CutCopyMode = False
+    Range("R3").Select
+    ActiveCell.FormulaR1C1 = "=CORREL(C2,C[-16])"
+    Range("R3").Select
+    Selection.AutoFill Destination:=Range("R3:AC3"), Type:=xlFillDefault
+    Range("R3:AC3").Select
+    Range("S4").Select
+    ActiveCell.FormulaR1C1 = "=CORREL(C3,C[-17])"
+    Range("S4").Select
+    ActiveCell.FormulaR1C1 = "=CORREL(C3,C[-16])"
+    Selection.AutoFill Destination:=Range("S4:AC4"), Type:=xlFillDefault
+    Range("S4:AC4").Select
+    Range("T5").Select
+    ActiveCell.FormulaR1C1 = "=CORREL(C4,C[-16])"
+    Range("U6").Select
+    ActiveCell.FormulaR1C1 = "=CORREL(C1,C[-19])"
+    Range("U6").Select
+    ActiveCell.FormulaR1C1 = "=CORREL(C5,C[-16])"
+    Range("V7").Select
+    ActiveSheet.Paste
+    ActiveCell.FormulaR1C1 = "=CORREL(C6,C[-16])"
+    Range("W8").Select
+    ActiveCell.FormulaR1C1 = "=CORREL(C7,C[-16])"
+    Range("X9").Select
+    ActiveCell.FormulaR1C1 = "=CORREL(C8,C[-16])"
+    Range("Y10").Select
+    ActiveCell.FormulaR1C1 = "=CORREL(C9,C[-16])"
+    Range("Z11").Select
+    ActiveCell.FormulaR1C1 = "=CORREL(C10,C[-16])"
+    Range("AA12").Select
+    ActiveSheet.Paste
+    ActiveCell.FormulaR1C1 = "=CORREL(C11,C[-16])"
+    Range("AB13").Select
+    ActiveSheet.Paste
+    ActiveCell.FormulaR1C1 = "=CORREL(C12,C[-16])"
+    Range("AC14").Select
+    ActiveCell.FormulaR1C1 = "=CORREL(C13,C[-16])"
+    Range("T5").Select
+    Selection.AutoFill Destination:=Range("T5:AC5"), Type:=xlFillDefault
+    Range("T5:AC5").Select
+    Range("U6").Select
+    Selection.AutoFill Destination:=Range("U6:AC6"), Type:=xlFillDefault
+    Range("U6:AC6").Select
+    Range("V7").Select
+    Selection.AutoFill Destination:=Range("V7:AC7"), Type:=xlFillDefault
+    Range("V7:AC7").Select
+    Range("W8").Select
+    Selection.AutoFill Destination:=Range("W8:AC8"), Type:=xlFillDefault
+    Range("W8:AC8").Select
+    Range("X9").Select
+    Selection.AutoFill Destination:=Range("X9:AC9"), Type:=xlFillDefault
+    Range("X9:AC9").Select
+    Range("Y10").Select
+    Selection.AutoFill Destination:=Range("Y10:AC10"), Type:=xlFillDefault
+    Range("Y10:AC10").Select
+    Range("Z11").Select
+    Selection.AutoFill Destination:=Range("Z11:AC11"), Type:=xlFillDefault
+    Range("Z11:AC11").Select
+    Range("AA12").Select
+    Selection.AutoFill Destination:=Range("AA12:AC12"), Type:=xlFillDefault
+    Range("AA12:AC12").Select
+    Range("AB13").Select
+    Selection.AutoFill Destination:=Range("AB13:AC13"), Type:=xlFillDefault
+    Range("AB13:AC13").Select
+    
+    
+    'Formating
+    Range("Q2:AC14").Select
+    Selection.FormatConditions.AddColorScale ColorScaleType:=3
+    Selection.FormatConditions(Selection.FormatConditions.Count).SetFirstPriority
+    Selection.FormatConditions(1).ColorScaleCriteria(1).Type = _
+        xlConditionValueLowestValue
+    With Selection.FormatConditions(1).ColorScaleCriteria(1).FormatColor
+        .Color = 7039480
+        .TintAndShade = 0
+    End With
+    Selection.FormatConditions(1).ColorScaleCriteria(2).Type = _
+        xlConditionValuePercentile
+    Selection.FormatConditions(1).ColorScaleCriteria(2).Value = 50
+    With Selection.FormatConditions(1).ColorScaleCriteria(2).FormatColor
+        .Color = 8711167
+        .TintAndShade = 0
+    End With
+    Selection.FormatConditions(1).ColorScaleCriteria(3).Type = _
+        xlConditionValueHighestValue
+    With Selection.FormatConditions(1).ColorScaleCriteria(3).FormatColor
+        .Color = 8109667
+        .TintAndShade = 0
+    End With
+    
+    Range("Q2:AC14").Select
+    Selection.NumberFormat = "0.0000"
+    
+
+
+End Sub

@@ -1,0 +1,28 @@
+Sub Summary()
+
+    Dim Sheet_Name1 As String
+    Dim sheet_name2 As String
+    
+    Sheet_Name1 = Active.Sheet.name
+    sheet_name2 = "summary"
+    NewSheet.name = sheet_name2
+    disp (Sheet_Name1)
+    
+    Range("A2").Select
+    Range("B2").Select
+    ActiveCell.FormulaR1C1 = "=COUNT(R[-17]C[-15]:R[-17]C[-3])"
+    Range("B2").Select
+    ActiveCell.FormulaR1C1 = "=COUNT(R[-16]C[-15]:R[-16]C[-3])"
+    Range("A2").Select
+    ActiveCell.FormulaR1C1 = "=COUNT(C[-15])"
+    ActiveCell.FormulaR1C1 = "=MAXIFS(correlation_matrix!Q2:AC14, correlation_matrix!Q2:AC14, <1)"
+    ActiveCell.FormulaR1C1 = "=MINIFS(correlation_matrix!Q2:AC14, correlation_matrix!Q2:AC14, <1)"
+
+
+    Range("E6").Select
+    Sheets("Summary").Select
+    
+    
+    
+    
+
